@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jiaka omeo poeo urlee</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class="wrapper">
+        <h2 class="question">Төрсөн өдрийн мэнд </h2>
+        <img class="gif" alt="gif" src="https://media.giphy.com/media/FTGah7Mx3ss04PcasF/giphy.gif"/>
+        <div class="btn-group">
+            <button class="yes-btn">Баярлалаа</button>
+            <button class="link-btn" style="display: none;">намайг дар</button>
+            <button class="no-btn">чадвал дар</button>
+        </div>
+    </div>
+    <script>
+        const yesBtn = document.querySelector(".yes-btn");
+        const linkBtn = document.querySelector(".link-btn");
+        const btnGroup = document.querySelector(".btn-group");
+
+        yesBtn.addEventListener("click", () => {
+            const question = document.querySelector(".question");
+            const gif = document.querySelector(".gif");
+            question.innerHTML = "сайхан баярлаарай";
+            gif.src = "https://media.giphy.com/media/UMon0fuimoAN9ueUNP/giphy.gif";
+            linkBtn.style.display = "inline-block";
+            yesBtn.remove();
+            document.querySelector(".no-btn").remove();
+        });
+
+        // Functionality for the link button
+        linkBtn.addEventListener("click", () => {
+            window.location.href = "https://www.youtube.com/watch?v=_z-1fTlSDF0&pp=ygUTaGFwcHkgYmlydGhkYXkgc29uZw%3D%3D"; // Replace with your desired YouTube link
+        });
+
+        const noBtn = document.querySelector(".no-btn");
+
+        noBtn.addEventListener("mouseover", () => {
+            const noBtnRect = noBtn.getBoundingClientRect();
+            const maxX = window.innerWidth - noBtnRect.width;
+            const maxY = window.innerHeight - noBtnRect.height;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            noBtn.style.left = randomX + "px";
+            noBtn.style.top = randomY + "px";
+        });
+    </script>
+</body>
+</html>
